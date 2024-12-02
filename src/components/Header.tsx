@@ -5,7 +5,7 @@ export default function Header() {
     <header className='flex justify-between border-b border-solid border-dark p-4'>
       <p className='text-sm text-primaryLight'>micheal-weaver</p>
 
-      <Burger className={'YO'} />
+      <Burger />
     </header>
   )
 }
