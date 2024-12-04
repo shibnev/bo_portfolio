@@ -1,5 +1,3 @@
-import Container from '@/components/Container';
-
 export default function Home() {
   return (
     <div className='p-8 flex flex-col gap-10 h-full'>

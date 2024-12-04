@@ -6,16 +6,16 @@
  * @returns {string} A string of class names separated by spaces.
  * 
  * @examples
- * cls('foo', 'bar'); // => 'foo bar'
- * cls('foo', { bar: true }); // => 'foo bar'
- * cls({ 'foo-bar': true }); // => 'foo-bar'
- * cls({ 'foo-bar': false }); // => ''
- * cls({ foo: true }, { bar: true }); // => 'foo bar'
- * cls({ foo: true, bar: true }); // => 'foo bar'
- * cls('foo', { bar: true, duck: false }, 'baz', { quux: true }); // => 'foo bar baz quux'
- * cls(null, false, 'bar', undefined, 0, 1, { baz: null }, ''); // => 'bar 1'
+ * classNames('foo', 'bar'); // => 'foo bar'
+ * classNames('foo', { bar: true }); // => 'foo bar'
+ * classNames({ 'foo-bar': true }); // => 'foo-bar'
+ * classNames({ 'foo-bar': false }); // => ''
+ * classNames({ foo: true }, { bar: true }); // => 'foo bar'
+ * classNames({ foo: true, bar: true }); // => 'foo bar'
+ * classNames('foo', { bar: true, duck: false }, 'baz', { quux: true }); // => 'foo bar baz quux'
+ * classNames(null, false, 'bar', undefined, 0, 1, { baz: null }, ''); // => 'bar 1'
  */
-export default function cls(...args: (string | number | Record<string, boolean>)[]): string {
+export default function classNames(...args: (string | number | Record<string, boolean>)[]): string {
   return args
     .flatMap((arg) => {
       if (typeof arg === 'string' || typeof arg === 'number') {

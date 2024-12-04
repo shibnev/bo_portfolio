@@ -1,9 +1,10 @@
 "use client";
 import { useState } from 'react';
-import cls from '@/helpers/ClassNames';
+import classNames from '@/helpers/ClassNames';
+import { className } from '@/types';
 
 interface BurgerProps {
-  className?: string;
+  className?: className;
 }
 
 interface BurgerLineProps {
@@ -20,7 +21,7 @@ function BurgerLine({ isOpen, lineIndex }: BurgerLineProps): JSX.Element {
 
   return (
     <span
-      className={cls(
+      className={classNames(
         'bg-primaryLight block transition-all duration-300 ease-out h-0.5 w-6 rounded-sm',
         lineIndex === 2 ? 'my-0.5' : '',
         lineStyles[lineIndex - 1]
@@ -39,7 +40,7 @@ export default function Burger({ className = '' }: BurgerProps): JSX.Element {
   return (
     <button
       onClick={handleClick}
-      className={cls('flex flex-col justify-center items-center', className)}
+      className={classNames('flex flex-col justify-center items-center', className)}
       aria-label="toggle navigation menu"
       type="button"
     >
