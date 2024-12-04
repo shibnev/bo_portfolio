@@ -17,7 +17,7 @@ export default function Home() {
         <p className='text-sm text-primaryLight'>{text}</p>
 
         <p className='text-sm'>
-          <span className='text-success'>const</span> <span className='text-secondary'>GITHUB_LINK</span> = <a className='text-danger' href="https://github.com/shibnev">“<span className='underline'>https://github.com/shibnev</span>”</a>
+          <span className='text-success'>const</span> <span className='text-secondary'>GITHUB_LINK</span> = <a className='text-danger' href={Me.github}>“<span className='underline'>{Me.github}</span>”</a>
         </p>
       </div>
     </div>

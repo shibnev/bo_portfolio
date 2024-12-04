@@ -3,7 +3,7 @@
 import { useEffect, useRef } from 'react';
 
 interface IWhiteNoiseProps {
-  opacity: number
+  opacity?: number
 }
 
 export default function WhiteNoise({ opacity = 5 }: IWhiteNoiseProps) {

@@ -3,7 +3,10 @@ export type className = string | undefined
 export type children = React.ReactNode
 
 export enum Me {
-  name = 'Antón Shíbnev' 
+  name = 'Antón Shíbnev',
+  github = 'https://github.com/shibnev',
+  linkedin = 'https://linkedin.com/in/anton-shibnev-634130140/',
+  telegram = 'https://t.me/bo_monk'
 }
 
 export enum HeaderStyle {

@@ -1,23 +1,23 @@
 import Image from 'next/image';
 import Container from '@/components/Container';
 import classNames from '@/helpers/ClassNames';
-import { ColMobileStyle } from '@/types';
+import { ColMobileStyle, Me } from '@/types';
 
 const icons = [
   {
     src: './icons/github.svg',
     alt: "github",
-    href: '#'
+    href: Me.github
   },
   {
     src: './icons/telegram.svg',
     alt: "telegram",
-    href: '#',
+    href: Me.telegram,
   },
   {
     src: './icons/linkedin.svg',
     alt: "linkedin",
-    href: '#',
+    href: Me.linkedin,
   },
 ]
 
@@ -41,8 +41,8 @@ export default function Footer({ className = '' }) {
               <Image
                 priority
                 src={src}
-                height={24}
-                width={24}
+                height={30}
+                width={30}
                 alt={alt}
               />
             </a>
