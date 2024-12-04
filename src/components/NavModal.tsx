@@ -1,10 +1,21 @@
 import Modal from '@/components/Modal';
 import Nav from '@/components/Nav';
 import classNames from '@/helpers/ClassNames';
+import { className } from '@/types';
 
-export default function NavModal({ isShow, className }) {
+interface INavModalProps {
+  className?: className
+  isShow: boolean
+}
+
+export default function NavModal({ onClick, isShow, className = '' }: INavModalProps) {
+
   return (
-    <Modal isShow={isShow} className={classNames('bg-primary z-20', className)} >
+    <Modal
+      onClick={onClick}
+      isShow={isShow}
+      className={classNames('bg-primary z-20', className)}
+    >
       <Nav />
     </Modal>
   )

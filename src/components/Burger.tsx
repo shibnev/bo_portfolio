@@ -30,12 +30,6 @@ interface IBurgerProps {
 }
 
 export default function Burger({ className = '', isOpen, onClick }: IBurgerProps): JSX.Element {
-  // const [isOpen, setIsOpen] = useState<boolean>(false);
-
-  // const handleClick = (): void => {
-  //   setIsOpen((prev) => !prev);
-  // };
-
   return (
     <button
       onClick={onClick}
