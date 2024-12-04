@@ -1,4 +1,6 @@
 export default function Home() {
+  const text = '// find my profile on Github:'
+
   return (
     <div className='p-8 flex flex-col gap-10 h-full'>
       <div className='flex flex-col gap-2 justify-center align-middle flex-1'>
@@ -8,7 +10,7 @@ export default function Home() {
       </div>
 
       <div className='mb-24 flex flex-col gap-4'>
-        <p className='text-sm text-primaryLight'>// find my profile on Github:</p>
+        <p className='text-sm text-primaryLight'>{text}</p>
 
         <p className='text-sm'>
           <span className='text-success'>const</span> <span className='text-secondary'>GITHUB_LINK</span> = <a className='text-danger' href="https://github.com/shibnev">“<span className='underline'>https://github.com/shibnev</span>”</a>

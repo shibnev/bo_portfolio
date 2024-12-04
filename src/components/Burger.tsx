@@ -1,18 +1,13 @@
 "use client";
-import { useState } from 'react';
 import classNames from '@/helpers/ClassNames';
 import { className } from '@/types';
 
-interface BurgerProps {
-  className?: className;
+interface IBurgerLineProps {
+  isOpen: boolean
+  lineIndex: number
 }
 
-interface BurgerLineProps {
-  isOpen: boolean;
-  lineIndex: number;
-}
-
-function BurgerLine({ isOpen, lineIndex }: BurgerLineProps): JSX.Element {
+function BurgerLine({ isOpen, lineIndex }: IBurgerLineProps): JSX.Element {
   const lineStyles = [
     isOpen ? 'rotate-45 translate-y-1' : '-translate-y-0.5',
     isOpen ? 'opacity-0' : 'opacity-100',
@@ -29,17 +24,21 @@ function BurgerLine({ isOpen, lineIndex }: BurgerLineProps): JSX.Element {
     />
   );
 }
+interface IBurgerProps {
+  className?: className
+  isOpen: boolean
+}
 
-export default function Burger({ className = '' }: BurgerProps): JSX.Element {
-  const [isOpen, setIsOpen] = useState<boolean>(false);
+export default function Burger({ className = '', isOpen, onClick }: IBurgerProps): JSX.Element {
+  // const [isOpen, setIsOpen] = useState<boolean>(false);
 
-  const handleClick = (): void => {
-    setIsOpen((prev) => !prev);
-  };
+  // const handleClick = (): void => {
+  //   setIsOpen((prev) => !prev);
+  // };
 
   return (
     <button
-      onClick={handleClick}
+      onClick={onClick}
       className={classNames('flex flex-col justify-center items-center', className)}
       aria-label="toggle navigation menu"
       type="button"

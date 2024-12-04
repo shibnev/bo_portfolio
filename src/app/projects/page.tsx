@@ -1,3 +1,3 @@
 export default function Projects() {
-  return <h1>_contacts</h1>
+  return <h1>_projects</h1>
 }
