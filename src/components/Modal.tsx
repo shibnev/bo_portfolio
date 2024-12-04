@@ -8,7 +8,7 @@ interface IModalProps {
 }
 
 export default function Modal({ className = '', children, isShow = false }: IModalProps) {
-  if (!isShow) return null; // Don't render if not shown
+  if (!isShow) return null;
 
   return (
     <div className={
@@ -17,11 +17,11 @@ export default function Modal({ className = '', children, isShow = false }: IMod
           'opacity-0': !isShow,
           'pointer-events-none': !isShow,
         },
-        'absolute w-full h-full left-0 bottom-0 right-0',
+        'absolute w-full left-0 bottom-0 right-0',
         className,
       )
     }>
-      <div className=''>{children}</div>
+      {children}
     </div>
   )
 }

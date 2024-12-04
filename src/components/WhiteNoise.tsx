@@ -58,7 +58,7 @@ export default function WhiteNoise({ opacity = 5 }: IWhiteNoiseProps) {
 
   return (
     <canvas
-      className={`absolute pointer-events-none opacity-${opacity} top-0 left-0 bottom-0 right-0`}
+      className={`absolute pointer-events-none opacity-${opacity} top-0 left-0 bottom-0 right-0 z-50`}
       ref={canvasRef}
     />
   );

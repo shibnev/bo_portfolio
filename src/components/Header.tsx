@@ -1,14 +1,10 @@
 "use client"
 
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import Burger from './Burger';
 import NavModal from './NavModal';
 import Link from 'next/link';
-import { Me } from '@/types';
-
-const HEADER_HEIGHT = 14
-const HEADER_PADDING = 'p-4'
-
+import { Me, HeaderStyle, ContainerStyle } from '@/types';
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState<boolean>(false);
@@ -20,7 +16,7 @@ export default function Header() {
   return (
     <>
       <header
-        className={`flex justify-between border-b border-solid border-dark ${HEADER_PADDING} h-${HEADER_HEIGHT}`}
+        className={`flex justify-between items-center border-b border-solid border-dark ${ContainerStyle.padding} h-${HeaderStyle.height}`}
       >
         <Link
           href='./'
@@ -37,7 +33,7 @@ export default function Header() {
       <NavModal
         onClick={handleClick}
         isShow={isOpen}
-        className={`top-${HEADER_HEIGHT} ${HEADER_PADDING}`}
+        className={`top-${HeaderStyle.height}`}
       />
     </>
   )
