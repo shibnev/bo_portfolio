@@ -7,6 +7,7 @@ import { className } from '@/types';
 interface INavModalProps {
   className?: className
   isShow: boolean
+  onClick?: () => void
 }
 
 export default function NavModal({ onClick, isShow, className = '' }: INavModalProps) {

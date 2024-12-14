@@ -4,6 +4,7 @@ import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import Blob from '@/components/Blob/index';
 import WhiteNoise from '@/components/WhiteNoise';
+import Container from '@/components/Container';
 import { Me } from '@/types';
 
 export const metadata: Metadata = {
@@ -17,15 +18,15 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className='h-full'>
-      <body className='p-6 h-full'>
-        <section className='border border-solid border-dark rounded-lg h-full bg-primary overflow-hidden relative'>
+      <body className='p-6'>
+        <section className='flex flex-col border border-solid border-dark rounded-lg h-full bg-primary overflow-hidden relative'>
           <Blob />
           <WhiteNoise />
           <Header />
-          <main className='h-full relative'>
-            <div className='relative z-10 h-full'>{children}</div>
+          <main className='relative grow'>
+            <Container className='relative z-10 h-full'>{children}</Container>
           </main>
-          <Footer />
+          <Footer className='hidden md:block' />
         </section>
       </body>
     </html>

@@ -1,5 +1,5 @@
 import classNames from '@/helpers/ClassNames';
-import { children, className, ContainerStyle, HeaderStyle } from '@/types';
+import { children, className, ContainerStyle } from '@/types';
 
 interface IContainerProps {
   className?: className

@@ -1,25 +1,33 @@
-"use client"
+"use client";
 
-import { useEffect, useRef } from 'react';
+import classNames from '@/helpers/ClassNames';
+import { className } from '@/types';
+import { useEffect, useRef } from "react";
 
 interface IWhiteNoiseProps {
-  opacity?: number
+  className?: className
 }
 
-export default function WhiteNoise({ opacity = 5 }: IWhiteNoiseProps) {
+export default function WhiteNoise({ className = '' }: IWhiteNoiseProps) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
 
   useEffect(() => {
     const canvas = canvasRef.current;
-    const ctx = canvas?.getContext('2d');
+    const ctx = canvas?.getContext("2d");
 
     const resize = () => {
       if (!canvas) return;
 
-      canvas.width = window.innerWidth * window.devicePixelRatio;
-      canvas.height = window.innerHeight * window.devicePixelRatio;
-      canvas.style.width = `${window.innerWidth}px`;
-      canvas.style.height = `${window.innerHeight}px`;
+      const { parentElement } = canvas;
+
+      if (parentElement) {
+        const { width, height } = parentElement.getBoundingClientRect();
+
+        canvas.width = width * window.devicePixelRatio;
+        canvas.height = height * window.devicePixelRatio;
+        canvas.style.width = `${width}px`;
+        canvas.style.height = `${height}px`;
+      }
     };
 
     const noise = (context: CanvasRenderingContext2D) => {
@@ -48,19 +56,23 @@ export default function WhiteNoise({ opacity = 5 }: IWhiteNoiseProps) {
     };
 
     resize();
-    window.addEventListener('resize', resize);
+    window.addEventListener("resize", resize);
     animationLoop();
 
     return () => {
-      window.removeEventListener('resize', resize);
+      window.removeEventListener("resize", resize);
     };
   }, []);
 
   return (
     <canvas
-      className={`absolute pointer-events-none opacity-${opacity} top-0 left-0 bottom-0 right-0 z-50`}
+      className={
+        classNames(
+          `absolute pointer-events-none opacity-5 top-0 left-0 bottom-0 right-0 z-50`,
+          className,
+        )
+      }
       ref={canvasRef}
     />
   );
 }
-

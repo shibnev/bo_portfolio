@@ -27,6 +27,7 @@ function BurgerLine({ isOpen, lineIndex }: IBurgerLineProps): JSX.Element {
 interface IBurgerProps {
   className?: className
   isOpen: boolean
+  onClick?: () => void
 }
 
 export default function Burger({ className = '', isOpen, onClick }: IBurgerProps): JSX.Element {

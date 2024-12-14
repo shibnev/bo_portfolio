@@ -4,7 +4,8 @@ import { useState } from 'react';
 import Burger from './Burger';
 import NavModal from './NavModal';
 import Link from 'next/link';
-import { Me, HeaderStyle, ContainerStyle } from '@/types';
+import { Me } from '@/types';
+import toKebabCase from '@/helpers/toKebabCase';
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState<boolean>(false);
@@ -16,24 +17,25 @@ export default function Header() {
   return (
     <>
       <header
-        className={`flex justify-between items-center border-b border-solid border-dark ${ContainerStyle.padding} h-${HeaderStyle.height}`}
+        className={`flex justify-between items-center border-b border-solid border-dark px-4 h-14`}
       >
         <Link
           href='./'
           className='text-sm text-primaryLight'>
-          {Me.name.toLowerCase().replace(' ', '-')}
+          {toKebabCase(Me.name)}
         </Link>
 
         <Burger
           isOpen={isOpen}
           onClick={handleClick}
+          className='md:hidden'
         />
       </header>
 
       <NavModal
         onClick={handleClick}
         isShow={isOpen}
-        className={`top-${HeaderStyle.height}`}
+        className='top-14'
       />
     </>
   )

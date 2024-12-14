@@ -4,7 +4,7 @@ export default function Home() {
   const text = '// find my profile on Github:'
 
   return (
-    <div className='p-8 flex flex-col gap-10 h-full'>
+    <div className='py-8 flex flex-col gap-10 h-full'>
       <div className='flex flex-col gap-2 justify-center align-middle flex-1'>
         <p className='text-lg'>Hi all. I am</p>
         <h1 className='text-6xl'>
