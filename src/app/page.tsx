@@ -1,9 +1,9 @@
 import getData from '@/helpers/getData'
-import { RestApi } from '@/types'
 
 export default async function Home() {
-  const { main } = await getData(RestApi.url + RestApi.pages);
-  const { name, github } = await getData(RestApi.url + RestApi.me);
+  const { main } = await getData('http://localhost:4000/pages');
+  const { name } = await getData('http://localhost:4000/me');
+  const { github } = await getData('http://localhost:4000/socials');
 
   return (
     <div className='py-8 flex flex-col gap-10 h-full'>
@@ -17,7 +17,7 @@ export default async function Home() {
         <p className='text-sm text-primaryLight'>{main.content[0]}</p>
 
         <p className='text-sm'>
-          <span className='text-success'>const</span> <span className='text-secondary'>GITHUB_LINK</span> = <a className='text-danger' href={github}>“<span className='underline'>{github}</span>”</a>
+          <span className='text-success'>const</span> <span className='text-secondary'>GITHUB_LINK</span> = <a className='text-danger' href={github.href}>“<span className='underline'>{github.href}</span>”</a>
         </p>
       </div>
     </div>

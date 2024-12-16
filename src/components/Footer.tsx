@@ -1,46 +1,35 @@
 import Image from 'next/image';
 import Container from '@/components/Container';
 import classNames from '@/helpers/ClassNames';
-import { ColMobileStyle, Me } from '@/types';
+import getData from '@/helpers/getData';
+import { RestApi } from '@/types';
 
-const icons = [
-  {
-    src: './icons/github.svg',
-    alt: "github",
-    href: Me.github
-  },
-  {
-    src: './icons/telegram.svg',
-    alt: "telegram",
-    href: Me.telegram,
-  },
-  {
-    src: './icons/linkedin.svg',
-    alt: "linkedin",
-    href: Me.linkedin,
-  },
-]
+interface IFooterProps {
+  className?: string;
+}
 
-export default function Footer({ className = '' }) {
+export default async function Footer({ className = '' }: IFooterProps) {
+  const icons = await getData(RestApi.url + 'socials');
+
   return (
     <footer
       className={
-        classNames(`border-t border-solid border-dark ${ColMobileStyle.height}`, className)
+        classNames('border-t border-solid border-dark header-height', className)
       }
     >
       <Container className="flex items-center h-full">
         <div>find me in:</div>
         <div className='ml-auto flex items-center h-full -mr-4'>
-          {icons.flatMap(({ href, src, alt }) => (
+          {Object.values(icons).map(({ href, iconSrc, alt }, index) => (
             <a
               href={href}
-              key={alt}
+              key={`__${alt}-${index}`}
               target='_bank'
-              className={`h-full flex items-center justify-center border-l border-solid border-dark ${ColMobileStyle.height} w-14`}
+              className={`h-full flex items-center justify-center border-l border-solid border-dark header-height w-14`}
             >
               <Image
                 priority
-                src={src}
+                src={iconSrc}
                 height={30}
                 width={30}
                 alt={alt}

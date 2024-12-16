@@ -18,3 +18,15 @@ body {
   font-family: 'Fira Code', Helvetica, sans-serif;
   height: 100vh;
 }
+
+.header-height {
+  @apply h-14;
+}
+
+.header-padding-x {
+  @apply px-4;
+}
+
+.container-padding-x {
+  @apply px-4;
+}

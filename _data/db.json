@@ -1,9 +1,23 @@
 {
   "me": {
-    "name": "Antón Shíbnev",
-    "github": "https://github.com/shibnev",
-    "linkedin": "https://linkedin.com/in/anton-shibnev-634130140/",
-    "telegram": "https://t.me/bo_monk"
+    "name": "Antón Shíbnev"
+  },
+  "socials": {
+    "github": {
+      "iconSrc": "./icons/github.svg",
+      "alt": "github",
+      "href": "https://github.com/shibnev"
+    },
+    "telegram": {
+      "iconSrc": "./icons/telegram.svg",
+      "alt": "telegram",
+      "href": "https://t.me/bo_monk"
+    },
+    "linkedin": {
+      "iconSrc": "./icons/linkedin.svg",
+      "alt": "linkedin",
+      "href": "https://linkedin.com/in/anton-shibnev-634130140/"
+    }
   },
   "pages": {
     "main": {

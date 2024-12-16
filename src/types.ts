@@ -12,18 +12,6 @@ export enum Me {
 export enum RestApi {
   url = 'http://localhost:4000/',
   pages = 'pages',
-  me = 'me'
-}
-
-export enum HeaderStyle {
-  height = 14,
-  padding = 4
-}
-
-export enum ColMobileStyle {
-  height = 'h-14',
-}
-
-export enum ContainerStyle {
-  padding = 'px-4'
+  me = 'me',
+  socials = 'socials'
 }

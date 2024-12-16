@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import Burger from './Burger';
-// import NavModal from './NavModal';
+import NavModal from './NavModal';
 import Link from 'next/link';
 import { Me } from '@/types';
 import toKebabCase from '@/helpers/toKebabCase';
@@ -32,11 +32,11 @@ export default function Header() {
         />
       </header>
 
-      {/* <NavModal
+      <NavModal
         onClick={handleClick}
         isShow={isOpen}
         className='top-14'
-      /> */}
+      />
     </>
   )
 }
