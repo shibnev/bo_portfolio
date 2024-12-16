@@ -1,21 +1,28 @@
-import type { Metadata } from "next";
 import "./globals.css";
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import Blob from '@/components/Blob/index';
 import WhiteNoise from '@/components/WhiteNoise';
 import Container from '@/components/Container';
-import { Me } from '@/types';
+import NavModal from '@/components/NavModal';
+import { RestApi } from '@/types';
+import getData from '@/helpers/getData';
 
-export const metadata: Metadata = {
-  title: Me.name,
+export const metadata = async () => {
+  const { name } = await getData(RestApi.url + RestApi.me);
+
+  return {
+    title: name,
+  }
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  // const data = await getData(RestApi.url)
+
   return (
     <html lang="en" className='h-full'>
       <body className='p-6'>
@@ -23,6 +30,7 @@ export default function RootLayout({
           <Blob />
           <WhiteNoise />
           <Header />
+          <NavModal isShow={true} />
           <main className='relative grow'>
             <Container className='relative z-10 h-full'>{children}</Container>
           </main>

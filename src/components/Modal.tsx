@@ -1,4 +1,5 @@
-"use client"
+'use client'
+
 import classNames from '@/helpers/ClassNames';
 import { children, className } from '@/types';
 

@@ -1,37 +1,30 @@
 import Link from 'next/link';
-import { className, ContainerStyle, HeaderStyle } from '@/types';
+import { className, ContainerStyle, HeaderStyle, RestApi } from '@/types';
 import classNames from '@/helpers/ClassNames';
+
+async function getNavList(url: string) {
+  const res = await fetch(url, {
+    next: {
+      revalidate: 0 //use 0 to optimize out of using cache
+    }
+  })
+
+  return res.json()
+}
 
 interface INavProps {
   className?: className
 }
 
-const list = [
-  {
-    name: '_hello',
-    href: '/',
-  },
-  {
-    name: '_about',
-    href: '/about',
-  },
-  {
-    name: '_projects',
-    href: '/projects',
-  },
-  {
-    name: '_contact',
-    href: '/contacts',
-  },
-]
+export default async function Nav({ className = '' }: INavProps) {
+  const list = await Object.values(getNavList(RestApi.url + RestApi.pages));
 
-export default function Nav({ className = '' }: INavProps) {
   return (
     <nav className={classNames('flex flex-col', className)}>
-      {list.flatMap(({ name, href }) => (
+      {list.flatMap(({ name, href, id }: { name: string, href: string, id: string }) => (
         <Link
           href={href}
-          key={name}
+          key={id}
           className={`flex items-center ${ContainerStyle.padding} h-${HeaderStyle.height} border-b border-solid border-dark`}>
           {name}
         </Link>

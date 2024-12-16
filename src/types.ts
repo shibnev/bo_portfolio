@@ -9,6 +9,12 @@ export enum Me {
   telegram = 'https://t.me/bo_monk'
 }
 
+export enum RestApi {
+  url = 'http://localhost:4000/',
+  pages = 'pages',
+  me = 'me'
+}
+
 export enum HeaderStyle {
   height = 14,
   padding = 4

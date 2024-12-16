@@ -1,0 +1,35 @@
+{
+  "me": {
+    "name": "Antón Shíbnev",
+    "github": "https://github.com/shibnev",
+    "linkedin": "https://linkedin.com/in/anton-shibnev-634130140/",
+    "telegram": "https://t.me/bo_monk"
+  },
+  "pages": {
+    "main": {
+      "name": "_hello",
+      "href": "/",
+      "id": "1",
+      "content": {
+        "0": "// find my profile on Github:",
+        "1": "Hi all. I am",
+        "2": "=> Front-end developer"
+      }
+    },
+    "about": {
+      "name": "_about",
+      "href": "/about",
+      "id": "2"
+    },
+    "projects": {
+      "name": "_projects",
+      "href": "/projects",
+      "id": "3"
+    },
+    "contacts": {
+      "name": "_contacts",
+      "href": "/contacts",
+      "id": "4"
+    }
+  }
+}

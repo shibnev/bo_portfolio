@@ -1,4 +1,4 @@
-"use client";
+'use client';
 
 import classNames from '@/helpers/ClassNames';
 import { className } from '@/types';
