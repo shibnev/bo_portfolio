@@ -9,7 +9,7 @@ interface IFooterProps {
 }
 
 export default async function Footer({ className = '' }: IFooterProps) {
-  const icons = await getData(RestApi.url + 'socials');
+  const icons: { href: string; iconSrc: string; alt: string }[] = await getData(RestApi.url + 'socials');
 
   return (
     <footer

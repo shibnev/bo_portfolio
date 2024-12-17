@@ -8,10 +8,10 @@ interface INavModalProps {
   className?: className
   isShow: boolean
   onClick?: () => void
+  navList: { name: string, href: string, id: string }[]
 }
 
-export default function NavModal({ onClick, isShow, className = '' }: INavModalProps) {
-
+export default function NavModal({ onClick, isShow, className = '', navList }: INavModalProps) {
   return (
     <Modal
       onClick={onClick}
@@ -19,7 +19,7 @@ export default function NavModal({ onClick, isShow, className = '' }: INavModalP
       className={classNames('bg-primary z-20', className)}
     >
       <div className='flex flex-col h-full'>
-        <Nav />
+        <Nav list={navList} />
         <Footer className='mt-auto' />
       </div>
     </Modal>

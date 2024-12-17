@@ -2,12 +2,12 @@
 
 import { useState } from 'react';
 import Burger from './Burger';
-import NavModal from './NavModal';
 import Link from 'next/link';
 import { Me } from '@/types';
 import toKebabCase from '@/helpers/toKebabCase';
+import NavModal from './NavModal';
 
-export default function Header() {
+export default function Header({ navList }: { navList: { name: string, href: string, id: string }[] }) {
   const [isOpen, setIsOpen] = useState<boolean>(false);
 
   const handleClick = (): void => {
@@ -20,7 +20,7 @@ export default function Header() {
         className={`flex justify-between items-center border-b border-solid border-dark px-4 h-14`}
       >
         <Link
-          href='./'
+          href='/'
           className='text-sm text-primaryLight'>
           {toKebabCase(Me.name)}
         </Link>
@@ -31,11 +31,10 @@ export default function Header() {
           className='md:hidden'
         />
       </header>
-
       <NavModal
-        onClick={handleClick}
         isShow={isOpen}
-        className='top-14'
+        navList={navList}
+        onClick={handleClick}
       />
     </>
   )

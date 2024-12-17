@@ -1,18 +1,17 @@
 import Link from 'next/link';
-import { className, RestApi } from '@/types';
+import { className } from '@/types';
 import classNames from '@/helpers/ClassNames';
-import getData from '@/helpers/getData';
 
 interface INavProps {
-  className?: className
+  className?: className;
+  list: { name: string, href: string, id: string }[];
 }
 
-export default async function Nav({ className = '' }: INavProps) {
-  const list = await Object.values(getData(RestApi.url + RestApi.pages));
 
+export default function Nav({ className = '', list }: INavProps) {
   return (
     <nav className={classNames('flex flex-col', className)}>
-      {list.flatMap(({ name, href, id }: { name: string, href: string, id: string }) => (
+      {list.flatMap(({ name, href, id }) => (
         <Link
           href={href}
           key={id}
@@ -21,5 +20,5 @@ export default async function Nav({ className = '' }: INavProps) {
         </Link>
       ))}
     </nav>
-  )
+  );
 }
