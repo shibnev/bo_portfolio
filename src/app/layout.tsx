@@ -5,7 +5,6 @@ import Blob from '@/components/Blob/index';
 import WhiteNoise from '@/components/WhiteNoise';
 import Container from '@/components/Container';
 import { RestApi } from '@/types';
-// import NavModal from '@/components/NavModal';
 import getData from '@/helpers/getData';
 
 export const metadata = async () => {
@@ -21,7 +20,6 @@ export default async function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const list = await Object.values(getData(RestApi.url + RestApi.pages));
 
   return (
     <html lang="en" className='h-full'>
@@ -29,13 +27,9 @@ export default async function RootLayout({
         <section className='flex flex-col border border-solid border-dark rounded-lg h-full bg-primary overflow-hidden relative'>
           <Blob />
           <WhiteNoise />
-          <Header navList={list} />
-          {/* <NavModal
-            isShow={false}
-            navList={list}
-          /> */}
+          <Header />
           <main className='relative grow'>
-            <Container className='relative z-10 h-full'>{children}</Container>
+            <Container className='relative z-10'>{children}</Container>
           </main>
           <Footer className='hidden md:block' />
         </section>

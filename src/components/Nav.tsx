@@ -10,7 +10,7 @@ interface INavProps {
 
 export default function Nav({ className = '', list }: INavProps) {
   return (
-    <nav className={classNames('flex flex-col', className)}>
+    <nav className={classNames('flex', className)}>
       {list.flatMap(({ name, href, id }) => (
         <Link
           href={href}

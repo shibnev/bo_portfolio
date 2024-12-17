@@ -40,9 +40,9 @@
       "href": "/projects",
       "id": "3"
     },
-    "contacts": {
-      "name": "_contacts",
-      "href": "/contacts",
+    "contact": {
+      "name": "_contact",
+      "href": "/contact",
       "id": "4"
     }
   }

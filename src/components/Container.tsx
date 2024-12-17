@@ -8,7 +8,7 @@ interface IContainerProps {
 
 export default function Container({ children, className = '' }: IContainerProps) {
   return (
-    <div className={classNames('container mx-auto container-padding-x', className)}>
+    <div className={classNames('container mx-auto container-padding-x h-full', className)}>
       {children}
     </div>
   )
