@@ -17,7 +17,7 @@ export default function Header() {
     const fetchData = async () => {
       const data: { name: string; href: string; id: string }[] = await getData(RestApi.url + RestApi.pages);
 
-      const dataMap = data.map((item) => (
+      const dataMap = Object.values(data).map((item) => (
         { name: item.name, href: item.href, id: item.id }
       ));
 
@@ -33,16 +33,16 @@ export default function Header() {
   return (
     <>
       <header
-        className={`flex justify-between items-center border-b border-solid border-dark px-4 h-14`}
+        className={`flex justify-between items-center line-b h-14`}
       >
         <Link
           href='/'
-          className='text-sm text-primaryLight'>
+          className='main-text line-r px-4 h-full flex items-center'>
           {toKebabCase(Me.name)}
         </Link>
 
         <Nav
-          className='hidden md:flex flex-col md:flex-row mr-auto text-sm text-primaryLight'
+          className='hidden md:flex flex-col md:flex-row mr-auto'
           list={navList}
         />
 

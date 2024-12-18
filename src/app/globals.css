@@ -30,3 +30,27 @@ body {
 .container-padding-x {
   @apply px-4;
 }
+
+.line {
+  @apply border-solid border-dark;
+}
+
+.line-t {
+  @apply line border-t;
+}
+
+.line-b {
+  @apply line border-b;
+}
+
+.line-l {
+  @apply line border-l;
+}
+
+.line-r {
+  @apply line border-r;
+}
+
+.main-text {
+  @apply text-sm text-primaryLight;
+}

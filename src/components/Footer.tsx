@@ -14,11 +14,11 @@ export default async function Footer({ className = '' }: IFooterProps) {
   return (
     <footer
       className={
-        classNames('border-t border-solid border-dark header-height', className)
+        classNames('line-t header-height', className)
       }
     >
       <Container className="flex items-center h-full">
-        <div>find me in:</div>
+        <p className='main-text'>find me in:</p>
         <div className='ml-auto flex items-center h-full -mr-4'>
           {Object.values(icons).map(({ href, iconSrc, alt }, index) => (
             <a
