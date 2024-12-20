@@ -2,7 +2,7 @@
 
 import { useState } from 'react'
 import Button from './Button'
-import Post from '@/helpers/PostEmail'
+import postEmail from '@/helpers/PostEmail'
 
 export default function Form() {
   const [isLoading, setLoading] = useState(false)
@@ -23,7 +23,7 @@ export default function Form() {
 
     const data: FormData = { name, email, message }
 
-    await Post({ from: data.email, name: data.name, message: data.message });
+    await postEmail({ from: data.email, name: data.name, message: data.message });
     setLoading(false)
   }
 

@@ -1,3 +1,7 @@
 export default function Projects() {
-  return <h1>_projects</h1>
+  return (
+    <section className='flex-1'>
+      <h1>_projects</h1>
+    </section>
+  )
 }

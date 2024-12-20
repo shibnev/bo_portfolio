@@ -20,7 +20,7 @@ interface ResendResponse {
   error?: ErrorResponse | null;
 }
 
-export default async function Post({ from, name, message }: PostParams): Promise<Response> {
+export default async function postEmail({ from, name, message }: PostParams): Promise<Response> {
   const RESEND_API_KEY = process.env.NEXT_PUBLIC_RESEND_API_KEY;
   const resend = new Resend(RESEND_API_KEY);
 
