@@ -21,7 +21,8 @@ interface ResendResponse {
 }
 
 export default async function postEmail({ from, name, message }: PostParams): Promise<Response> {
-  const RESEND_API_KEY = process.env.NEXT_PUBLIC_RESEND_API_KEY;
+  // const RESEND_API_KEY = process.env.NEXT_PUBLIC_RESEND_API_KEY;
+  const RESEND_API_KEY = 're_BbrLvJgE_DSbHnQSo3QoJPzGakJ3J9hp1';
   const resend = new Resend(RESEND_API_KEY);
 
   try {
