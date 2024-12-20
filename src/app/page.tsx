@@ -10,7 +10,7 @@ export default async function Home() {
   const { github } = socials;
 
   return (
-    <div className='py-8 flex flex-col gap-10 h-full'>
+    <div className='py-8 flex flex-col gap-10 h-full flex-1'>
       <div className='flex flex-col gap-2 justify-center align-middle flex-1'>
         <p className='text-lg'>{main.content[1]}</p>
         <h1 className='text-6xl'>{name}</h1>

@@ -1,7 +1,7 @@
 import './globals.css';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
-// import Blob from '@/components/Blob/index';
+import Blob from '@/components/Blob/index';
 // import WhiteNoise from '@/components/WhiteNoise';
 import Container from '@/components/Container';
 import { RestApi } from '@/types';
@@ -31,7 +31,7 @@ export default async function RootLayout({
       {/* <WhiteNoise /> */}
       <body className='p-6 min-h-screen flex flex-col'>
         <section className='flex flex-col border border-solid border-dark rounded-lg h-full bg-primary overflow-hidden relative flex-1'>
-          {/* <Blob /> */}
+          <Blob />
           <NavModalProvider>
             <Header >
               <Nav
@@ -45,10 +45,12 @@ export default async function RootLayout({
               navList={navList}
             />
           </NavModalProvider>
-          <main className='relative grow'>
-            <Container className='relative z-10 py-8'>{children}</Container>
+
+          <main className='relative grow flex flex-col'>
+            <Container className='relative z-10 py-8 flex-1 flex flex-col'>{children}</Container>
           </main>
-          <Footer className='hidden md:block' />
+
+          <Footer />
         </section>
       </body>
     </html>
