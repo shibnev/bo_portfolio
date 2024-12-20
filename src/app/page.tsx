@@ -1,9 +1,13 @@
 import getData from '@/helpers/getData'
+import { RestApi } from '@/types';
 
 export default async function Home() {
-  const { main } = await getData('http://localhost:4000/pages');
-  const { name } = await getData('http://localhost:4000/me');
-  const { github } = await getData('http://localhost:4000/socials');
+  const dataBase = await getData(RestApi.url);
+
+  const { pages, me, socials } = dataBase;
+  const { main } = pages;
+  const { name } = me;
+  const { github } = socials;
 
   return (
     <div className='py-8 flex flex-col gap-10 h-full'>

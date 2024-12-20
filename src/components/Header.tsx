@@ -1,34 +1,15 @@
 'use client'
 
-import { useState, useEffect } from 'react';
 import Burger from './Burger';
 import Link from 'next/link';
-import { Me, RestApi } from '@/types';
+import { Me } from '@/types';
 import toKebabCase from '@/helpers/toKebabCase';
-import NavModal from '@/components/NavModal';
-import getData from '@/helpers/getData';
-import Nav from './Nav';
+import { useIsNavModal } from '@/context/nav-modal-provider';
 
-export default function Header() {
-  const [isOpen, setIsOpen] = useState<boolean>(false);
-  const [navList, setNavList] = useState<{ name: string; href: string; id: string }[]>([]);
-
-  useEffect(() => {
-    const fetchData = async () => {
-      const data: { name: string; href: string; id: string }[] = await getData(RestApi.url + RestApi.pages);
-
-      const dataMap = Object.values(data).map((item) => (
-        { name: item.name, href: item.href, id: item.id }
-      ));
-
-      setNavList(dataMap);
-    };
-    fetchData();
-  }, []);
-
-  const handleClick = (): void => {
-    setIsOpen((prev) => !prev)
-  };
+export default function Header({ children }: { children: React.ReactNode }) {
+  const navModalContext = useIsNavModal();
+  const isNavOpen = navModalContext?.isNavOpen ?? false;
+  const setNavOpen = navModalContext?.setNavOpen;
 
   return (
     <>
@@ -41,23 +22,14 @@ export default function Header() {
           {toKebabCase(Me.name)}
         </Link>
 
-        <Nav
-          className='hidden md:flex flex-col md:flex-row mr-auto'
-          list={navList}
-        />
+        {children}
 
         <Burger
-          isOpen={isOpen}
-          onClick={handleClick}
+          isOpen={isNavOpen}
+          onClick={() => setNavOpen && setNavOpen(!isNavOpen)}
           className='md:hidden'
         />
       </header>
-      <NavModal
-        className='md:hidden'
-        isShow={isOpen}
-        navList={navList}
-        onClick={handleClick}
-      />
     </>
   )
 }

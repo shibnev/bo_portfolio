@@ -1,8 +1,9 @@
+'use client'
+
 import Link from 'next/link';
 import { className } from '@/types';
 import classNames from '@/helpers/ClassNames';
 import { usePathname } from 'next/navigation'
-
 
 interface INavProps {
   className?: className;

@@ -10,8 +10,5 @@ export enum Me {
 }
 
 export enum RestApi {
-  url = 'http://localhost:4000/',
-  pages = 'pages',
-  me = 'me',
-  socials = 'socials'
+  url = 'https://raw.githubusercontent.com/shibnev/bo_portfolio/refs/heads/master/_data/db.json',
 }

@@ -9,7 +9,9 @@ interface IFooterProps {
 }
 
 export default async function Footer({ className = '' }: IFooterProps) {
-  const icons: { href: string; iconSrc: string; alt: string }[] = await getData(RestApi.url + 'socials');
+  const dataBase = await getData(RestApi.url);
+  const { socials } = dataBase;
+  const icons: { href: string; iconSrc: string; alt: string }[] = socials;
 
   return (
     <footer
@@ -25,10 +27,11 @@ export default async function Footer({ className = '' }: IFooterProps) {
               href={href}
               key={`__${alt}-${index}`}
               target='_bank'
-              className={`h-full flex items-center justify-center border-l border-solid border-dark header-height w-14`}
+              className={`group h-full flex items-center justify-center border-l border-solid border-dark header-height w-14`}
             >
               <Image
                 priority
+                className='opacity-50 group-hover:opacity-80 transition-opacity'
                 src={iconSrc}
                 height={30}
                 width={30}
