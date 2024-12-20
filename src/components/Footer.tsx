@@ -19,7 +19,7 @@ export default async function Footer({ className = '' }: IFooterProps) {
         classNames('line-t header-height', className)
       }
     >
-      <Container className="flex items-center h-full">
+      <div className="flex items-center h-full px-4">
         <p className='main-text'>find me in:</p>
         <div className='ml-auto flex items-center h-full -mr-4'>
           {Object.values(icons).map(({ href, iconSrc, alt }, index) => (
@@ -40,7 +40,7 @@ export default async function Footer({ className = '' }: IFooterProps) {
             </a>
           ))}
         </div>
-      </Container>
+      </div>
     </footer>
   )
 }
