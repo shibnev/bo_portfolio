@@ -1,15 +1,20 @@
 'use client';
 
-import { ReactNode, Dispatch, createContext, useContext, useState, SetStateAction } from 'react';
+import { children } from '@/types';
+import { Dispatch, createContext, useContext, useState, SetStateAction } from 'react';
 
-interface NavModalContextType {
+interface INavModalContextType {
   isNavOpen: boolean;
   setNavOpen: Dispatch<SetStateAction<boolean>>;
 }
 
-const IsNavModalOpen = createContext<NavModalContextType | undefined>(undefined);
+const IsNavModalOpen = createContext<INavModalContextType | undefined>(undefined);
 
-function NavModalProvider({ children }: { children: ReactNode }) {
+interface INavModalProviderProps {
+  children: children;
+}
+
+function NavModalProvider({ children }: INavModalProviderProps) {
   const [isNavOpen, setNavOpen] = useState<boolean>(false);
 
   return (

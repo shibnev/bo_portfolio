@@ -1,15 +1,20 @@
 
 import classNames from '@/helpers/ClassNames';
-import { ReactNode } from 'react';
+import { children, className } from '@/types';
 
-interface ButtonProps {
-  children: ReactNode;
+interface IButtonProps {
+  children: children;
   type?: "button" | "submit" | "reset";
   disabled?: boolean;
-  className?: string;
+  className?: className;
 }
 
-export default function Button({ children, type, className = '', disabled }: ButtonProps) {
+export default function Button({
+  children,
+  type,
+  className = '',
+  disabled
+}: IButtonProps) {
   return (
     <button
       disabled={disabled}

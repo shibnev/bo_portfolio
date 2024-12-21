@@ -1,10 +1,10 @@
 import Image from 'next/image';
 import classNames from '@/helpers/ClassNames';
 import getData from '@/helpers/getData';
-import { RestApi } from '@/types';
+import { className, RestApi } from '@/types';
 
 interface IFooterProps {
-  className?: string;
+  className?: className;
 }
 
 export default async function Footer({ className = '' }: IFooterProps) {

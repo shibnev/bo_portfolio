@@ -3,11 +3,9 @@ import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import Blob from '@/components/Blob/index';
 // import WhiteNoise from '@/components/WhiteNoise';
-import { RestApi } from '@/types';
+import { RestApi, children } from '@/types';
 import getData from '@/helpers/getData';
-import NavModal from '@/components/NavModal';
 import { NavModalProvider } from '@/context/nav-modal-provider';
-import Nav from '@/components/Nav';
 
 export const metadata = async () => {
   const { me } = await getData(RestApi.url);
@@ -20,7 +18,7 @@ export const metadata = async () => {
 export default async function RootLayout({
   children,
 }: Readonly<{
-  children: React.ReactNode;
+  children: children;
 }>) {
   const dataBase = await getData(RestApi.url);
   const navList = Object.values(dataBase.pages) as { name: string; href: string; id: string }[];
@@ -34,24 +32,13 @@ export default async function RootLayout({
 
           {/* header */}
           <NavModalProvider>
-            <Header >
-              <Nav
-                className='hidden md:flex flex-col md:flex-row mr-auto'
-                list={navList}
-              />
-            </Header>
-
-            <NavModal
-              className='md:hidden'
-              navList={navList}
-            />
+            <Header navList={navList} />
           </NavModalProvider>
 
           {/* main */}
           <main className='relative grow flex flex-col'>
             {children}
           </main>
-
 
           <Footer />
         </section>
