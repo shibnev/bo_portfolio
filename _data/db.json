@@ -3,11 +3,6 @@
     "name": "Antón Shíbnev"
   },
   "socials": {
-    "github": {
-      "iconSrc": "./icons/github.svg",
-      "alt": "github",
-      "href": "https://github.com/shibnev"
-    },
     "telegram": {
       "iconSrc": "./icons/telegram.svg",
       "alt": "telegram",
@@ -17,6 +12,16 @@
       "iconSrc": "./icons/linkedin.svg",
       "alt": "linkedin",
       "href": "https://linkedin.com/in/anton-shibnev-634130140/"
+    },
+    "codewars": {
+      "iconSrc": "./icons/codewars.svg",
+      "alt": "codewars",
+      "href": "https://codewars.com/users/anton_shibnev"
+    },
+    "github": {
+      "iconSrc": "./icons/github.svg",
+      "alt": "github",
+      "href": "https://github.com/shibnev"
     }
   },
   "pages": {

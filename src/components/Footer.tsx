@@ -1,5 +1,4 @@
 import Image from 'next/image';
-import Container from '@/components/Container';
 import classNames from '@/helpers/ClassNames';
 import getData from '@/helpers/getData';
 import { RestApi } from '@/types';
@@ -19,15 +18,15 @@ export default async function Footer({ className = '' }: IFooterProps) {
         classNames('line-t header-height', className)
       }
     >
-      <div className="flex items-center h-full px-4">
-        <p className='main-text'>find me in:</p>
-        <div className='ml-auto flex items-center h-full -mr-4'>
+      <div className="flex items-center h-full justify-end">
+        <p className='main-text px-4'>find me in:</p>
+        <div className='ml-auto md:ml-0 flex items-center h-full'>
           {Object.values(icons).map(({ href, iconSrc, alt }, index) => (
             <a
               href={href}
               key={`__${alt}-${index}`}
               target='_bank'
-              className={`group h-full flex items-center justify-center border-l border-solid border-dark header-height w-14`}
+              className={`group h-full flex items-center justify-center line-l header-height w-14`}
             >
               <Image
                 priority
