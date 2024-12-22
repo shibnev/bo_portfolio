@@ -26,9 +26,9 @@
   },
   "pages": {
     "main": {
+      "id": "1",
       "name": "_hello",
       "href": "/",
-      "id": "1",
       "content": {
         "0": "// find my profile on Github:",
         "1": "Hi all. I am",
@@ -36,11 +36,12 @@
       }
     },
     "about": {
+      "id": "2",
       "name": "_about",
-      "href": "/about",
-      "id": "2"
+      "href": "/about"
     },
     "projects": {
+      "id": "3",
       "name": "_projects",
       "href": "/projects",
       "menu": {
@@ -70,7 +71,6 @@
         ]
       }
     },
-    "id": "3"
   },
   "contact": {
     "name": "_contact",
