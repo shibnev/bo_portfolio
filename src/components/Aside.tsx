@@ -1,13 +1,21 @@
-import { children } from '@/types';
-// import AsideAccordion from '@/components/AsideAccordion';
+import classNames from '@/helpers/ClassNames';
+import { children, className } from '@/types';
 
 interface IAsideProps {
-  children?: children;
+  children?: children
+  className: className
 }
 
-export default function Aside({ children }: IAsideProps) {
+export default function Aside({ children, className = '' }: IAsideProps) {
   return (
-    <div className='line-r w-3/12 md:w-2/12'>
+    <div
+      className={
+        classNames(
+          'border-solid border-dark border-b md:border-r',
+          className,
+        )
+      }
+    >
       {children}
     </div>
   )

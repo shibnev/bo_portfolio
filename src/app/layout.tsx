@@ -26,7 +26,7 @@ export default async function RootLayout({
   return (
     <html lang="en" className='h-full'>
       {/* <WhiteNoise /> */}
-      <body className='p-6 min-h-screen flex flex-col'>
+      <body className='p-2 md:p-6 min-h-screen flex flex-col'>
         <section className='flex flex-col border border-solid border-dark rounded-lg h-full bg-primary overflow-hidden relative flex-1'>
           <Blob />
 

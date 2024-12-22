@@ -1,13 +1,9 @@
-// import Aside from '@/components/Aside';
+import PageInner from '@/components/PageInner';
 
 export default function About() {
   return (
-    <section className='flex-1 flex'>
-      {/* <Aside list={list} /> */}
-
-      <div>
-        <h1>ABOUT ME</h1>
-      </div>
-    </section>
+    <PageInner>
+      <h1>ABOUT ME</h1>
+    </PageInner>
   )
 }

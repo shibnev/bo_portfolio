@@ -43,12 +43,38 @@
     "projects": {
       "name": "_projects",
       "href": "/projects",
-      "id": "3"
+      "menu": {
+        "title": "Projects",
+        "items": [
+          {
+            "name": "React",
+            "icon": {
+              "src": "./icons/react.svg",
+              "alt": "react"
+            }
+          },
+          {
+            "name": "HTML",
+            "icon": {
+              "src": "./icons/html.svg",
+              "alt": ""
+            }
+          },
+          {
+            "name": "css",
+            "icon": {
+              "src": "./icons/css.svg",
+              "alt": ""
+            }
+          }
+        ]
+      }
     },
-    "contact": {
-      "name": "_contact",
-      "href": "/contact",
-      "id": "4"
-    }
+    "id": "3"
+  },
+  "contact": {
+    "name": "_contact",
+    "href": "/contact",
+    "id": "4"
   }
 }

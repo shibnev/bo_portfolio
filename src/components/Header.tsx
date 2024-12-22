@@ -24,7 +24,7 @@ export default function Header({ navList }: IHeaderProps) {
       >
         <Link
           href='/'
-          className='main-text line-r px-4 h-full flex items-center w-3/12 md:w-2/12'>
+          className='main-text border-solid border-dark md:border-r px-4 h-full flex items-center aside-width hover:text-white transition-colors'>
           {toKebabCase(Me.name)}
         </Link>
 

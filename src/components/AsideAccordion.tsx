@@ -1,19 +1,21 @@
 'use client';
 
-import { children } from '@/types';
+import { children, className } from '@/types';
 import { useState } from 'react';
 
 interface IAsideAccordionProps {
-  header?: string;
-  children?: children;
+  header?: string
+  children?: children
+  className?: className
+  isOpen?: boolean
 }
 
-export default function AsideAccordion({ header, children }: IAsideAccordionProps) {
-  const [isActive, setActive] = useState<boolean>(true);
+export default function AsideAccordion({ className, header, children, isOpen = false }: IAsideAccordionProps) {
+  const [isActive, setActive] = useState<boolean>(isOpen);
 
   return (
     <div>
-      <div className=''>
+      <div className={className}>
         <div
           className='px-4 py-2 cursor-pointer text-sm lowercase'
           onClick={() => setActive(!isActive)}

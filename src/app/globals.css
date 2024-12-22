@@ -30,6 +30,10 @@ body {
   @apply px-4;
 }
 
+.aside-width {
+  @apply w-auto sm:w-4/12 md:w-3/12 lg:w-2/12;
+}
+
 .line {
   @apply border-solid border-dark;
 }
