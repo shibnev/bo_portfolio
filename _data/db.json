@@ -48,8 +48,9 @@
         {
           "name": "React",
           "description": "React is a JavaScript library for building user interfaces.",
+          "href": "#",
           "image": {
-            "src": "public/img/1.png",
+            "src": "./img/1.png",
             "alt": "react"
           },
           "icon": {
@@ -59,9 +60,10 @@
         },
         {
           "name": "HTML",
+          "href": "#",
           "description": "HTML is the standard markup language for documents designed to be displayed in a web browser.",
           "image": {
-            "src": "public/img/1.png",
+            "src": "./img/1.png",
             "alt": "react"
           },
           "icon": {
@@ -71,9 +73,10 @@
         },
         {
           "name": "css",
+          "href": "#",
           "description": "CSS is a style sheet language used for describing the presentation of a document written in a markup language such as HTML.",
           "image": {
-            "src": "public/img/1.png",
+            "src": "./img/1.png",
             "alt": "react"
           },
           "icon": {

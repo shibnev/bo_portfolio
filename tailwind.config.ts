@@ -21,6 +21,7 @@ export default {
         'primary': '#011627',
         'primaryLight': '#607b96',
         'primaryDark': '#1c2b3a',
+        'primaryDarker': '#011221',
         'secondary': '#43d9ad',
         'danger': '#e99287',
         'success': '#4d5bce',
