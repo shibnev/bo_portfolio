@@ -44,6 +44,44 @@
       "id": "3",
       "name": "_projects",
       "href": "/projects",
+      "projectsList": [
+        {
+          "name": "React",
+          "description": "React is a JavaScript library for building user interfaces.",
+          "image": {
+            "src": "./img/1.png",
+            "alt": "react"
+          },
+          "icon": {
+            "src": "./icons/react.svg",
+            "alt": "react"
+          }
+        },
+        {
+          "name": "HTML",
+          "description": "HTML is the standard markup language for documents designed to be displayed in a web browser.",
+          "image": {
+            "src": "./img/1.png",
+            "alt": "react"
+          },
+          "icon": {
+            "src": "./icons/html.svg",
+            "alt": "html"
+          }
+        },
+        {
+          "name": "css",
+          "description": "CSS is a style sheet language used for describing the presentation of a document written in a markup language such as HTML.",
+          "image": {
+            "src": "./img/1.png",
+            "alt": "react"
+          },
+          "icon": {
+            "src": "./icons/css.svg",
+            "alt": "css"
+          }
+        }
+      ],
       "menu": {
         "title": "Projects",
         "items": [
