@@ -70,11 +70,11 @@
           }
         ]
       }
+    },
+    "contact": {
+      "name": "_contact",
+      "href": "/contact",
+      "id": "4"
     }
-  },
-  "contact": {
-    "name": "_contact",
-    "href": "/contact",
-    "id": "4"
   }
 }

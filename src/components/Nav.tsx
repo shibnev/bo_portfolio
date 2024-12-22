@@ -15,10 +15,10 @@ export default function Nav({ className = '', list }: INavProps) {
 
   return (
     <nav className={classNames('flex', className)}>
-      {list.flatMap(({ name, href, id }) => (
+      {list.flatMap(({ name, href, id }, index) => (
         <Link
           href={href}
-          key={id}
+          key={`__${id}-${index}`}
           className={
             classNames(
               'main-text relative flex items-center container-padding-x header-height line-r hover:text-white transition',
