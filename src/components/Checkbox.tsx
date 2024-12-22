@@ -9,9 +9,13 @@ interface ICheckboxProps {
   label: string;
   checked?: boolean;
   onChange?: (checked: boolean) => void;
+  icon?: {
+    src: string;
+    alt: string;
+  };
 }
 
-export default function Checkbox({ label, checked = false, onChange }: ICheckboxProps) {
+export default function Checkbox({ label, checked = false, onChange, icon }: ICheckboxProps) {
   const [isChecked, setIsChecked] = useState(checked);
 
   const handleCheckboxChange = () => {
@@ -50,13 +54,16 @@ export default function Checkbox({ label, checked = false, onChange }: ICheckbox
       </span>
       <span className={
         classNames(
-          'text-primaryLight select-none mt-0.5 text-sm transition-colors group-hover:text-white',
+          'text-primaryLight select-none mt-0.5 text-sm transition-colors group-hover:text-white flex items-center gap-2',
           {
             'text-white': isChecked,
           }
         )
       }
-      >{label}</span>
+      >
+        {icon && <Image src={icon.src} alt={icon.alt} width={20} height={20} />}
+        {label}
+      </span>
     </label >
   );
 }

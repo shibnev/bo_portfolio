@@ -29,7 +29,7 @@ export default function AsideAccordion({ className, header, children, isOpen = f
             height={6}
             className={`transform ${isActive ? 'rotate-90' : ''} transition-transform ml-1`}
           />
-          <div>
+          <div className='select-none'>
             {header}
           </div>
         </div>
