@@ -4,11 +4,14 @@ import classNames from '@/helpers/ClassNames';
 import { className } from '@/types';
 import { useEffect, useRef } from "react";
 
+const DEFAULT_OPACITY = 0.03;
+
 interface IWhiteNoiseProps {
   className?: className
+  opacity?: number
 }
 
-export default function WhiteNoise({ className = '' }: IWhiteNoiseProps) {
+export default function WhiteNoise({ className = '', opacity = DEFAULT_OPACITY }: IWhiteNoiseProps) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
 
   useEffect(() => {
@@ -68,10 +71,11 @@ export default function WhiteNoise({ className = '' }: IWhiteNoiseProps) {
     <canvas
       className={
         classNames(
-          `absolute pointer-events-none opacity-5 top-0 left-0 bottom-0 right-0 z-50`,
+          `absolute pointer-events-none top-0 left-0 bottom-0 right-0 z-50`,
           className,
         )
       }
+      style={{ opacity: `${opacity}` }}
       ref={canvasRef}
     />
   );
