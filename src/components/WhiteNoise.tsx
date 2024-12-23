@@ -5,6 +5,7 @@ import { className } from '@/types';
 import { useEffect, useRef } from "react";
 
 const DEFAULT_OPACITY = 0.03;
+const FRAME_INTERVAL = 80; // Adjust frame interval for better performance
 
 interface IWhiteNoiseProps {
   className?: className
@@ -43,24 +44,26 @@ export default function WhiteNoise({ className = '', opacity = DEFAULT_OPACITY }
       const len = buffer32.length;
 
       for (let i = 0; i < len; i++) {
-        if (Math.random() < 0.5) {
-          buffer32[i] = 0xffffffff;
-        }
+        buffer32[i] = Math.random() < 0.5 ? 0xffffffff : 0xff000000; // Simplify noise generation
       }
 
       context.putImageData(imageData, 0, 0);
     };
 
-    const animationLoop = () => {
+    let lastFrameTime = 0;
+    const animationLoop = (time: number) => {
       if (!ctx) return;
 
-      noise(ctx);
+      if (time - lastFrameTime >= FRAME_INTERVAL) {
+        noise(ctx);
+        lastFrameTime = time;
+      }
       requestAnimationFrame(animationLoop);
     };
 
     resize();
     window.addEventListener("resize", resize);
-    animationLoop();
+    requestAnimationFrame(animationLoop);
 
     return () => {
       window.removeEventListener("resize", resize);
