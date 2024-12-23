@@ -35,7 +35,7 @@ export default function AsideAccordion({ className, header, children, isOpen = f
         </div>
 
         {isActive && (
-          <div className='p-2 text-sm '>
+          <div className='p-2 w-full flex flex-col gap-2'>
             {children}
           </div>
         )}
