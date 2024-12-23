@@ -1,5 +1,6 @@
 import Container from '@/components/Container';
 import getData from '@/helpers/getData'
+import Blob from '@/components/Blob';
 import { RestApi } from '@/types';
 
 export default async function Home() {
@@ -12,6 +13,7 @@ export default async function Home() {
 
   return (
     <Container className='relative z-10 py-8 flex-1 flex flex-col'>
+      <Blob />
       <div className='py-8 flex flex-col gap-10 h-full flex-1'>
         <div className='flex flex-col gap-2 justify-center align-middle flex-1'>
           <p className='text-lg'>{main.content[1]}</p>
