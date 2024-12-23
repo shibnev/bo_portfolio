@@ -46,6 +46,9 @@
           {
             "name": "shibnev.anton@gmail.com",
             "type": "link",
+            "link": {
+              "href": "mailto:shibnev.anton@gmail.com"
+            },
             "icon": {
               "src": "./icons/mail.svg",
               "alt": "mail"
@@ -54,6 +57,9 @@
           {
             "name": "+381 62 8227 868",
             "type": "link",
+            "link": {
+              "href": "phone:+381628227868"
+            },
             "icon": {
               "src": "./icons/phone.svg",
               "alt": "phone"
@@ -112,7 +118,7 @@
         "items": [
           {
             "name": "React",
-            "type": "checkBox",
+            "type": "checkbox",
             "icon": {
               "src": "./icons/react.svg",
               "alt": "react"
@@ -120,7 +126,7 @@
           },
           {
             "name": "HTML",
-            "type": "checkBox",
+            "type": "checkbox",
             "icon": {
               "src": "./icons/html.svg",
               "alt": ""
@@ -128,7 +134,7 @@
           },
           {
             "name": "css",
-            "type": "checkBox",
+            "type": "checkbox",
             "icon": {
               "src": "./icons/css.svg",
               "alt": ""
