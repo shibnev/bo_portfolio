@@ -36,15 +36,18 @@ export default function AccordionList({ menu }: { menu: IMenuProps }) {
                 href={link.href}
                 key={`__${index}_${name}`}
                 target='_blank'
-                className='flex items-center gap-2 main-text lowercase'
+                className='flex items-center gap-2 lowercase group w-max'
               >
                 <Image
+                  className='opacity-40 group-hover:opacity-100 transition-opacity'
                   width={10}
                   height={10}
                   src={icon.src}
                   alt={icon.alt}
                 />
-                <span>{name}</span>
+                <span
+                  className='text-primaryLight text-sm transition-colors group-hover:text-white'
+                >{name}</span>
               </a>
             )
           }
