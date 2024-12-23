@@ -2,7 +2,7 @@
 
 import { children, className } from '@/types';
 import Image from 'next/image';
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import ArrowIcon from '../../public/icons/arrow.svg';
 
 interface IAsideAccordionProps {
@@ -14,6 +14,21 @@ interface IAsideAccordionProps {
 
 export default function AsideAccordion({ className, header, children, isOpen = false }: IAsideAccordionProps) {
   const [isActive, setActive] = useState<boolean>(isOpen);
+  const ref = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const el = ref.current;
+
+    if (el) {
+      // Toggle the content's max-height for smooth opening and closing
+      if (!isActive) {
+        el.style.maxHeight = '0';
+      } else {
+        el.style.maxHeight = el.scrollHeight + 'px';
+      }
+    }
+  }, [ref, isActive]);
+
 
   return (
     <div>
@@ -34,11 +49,14 @@ export default function AsideAccordion({ className, header, children, isOpen = f
           </div>
         </div>
 
-        {isActive && (
-          <div className='p-2 w-full flex flex-col gap-2'>
+        <div
+          ref={ref}
+          className='w-full max-h-0 overflow-hidden transition-all duration-300 ease-in-out  line-b'
+        >
+          <div className='px-2 py-4 flex flex-col gap-2'>
             {children}
           </div>
-        )}
+        </div>
       </div>
     </div>
   )

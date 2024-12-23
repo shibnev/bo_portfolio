@@ -16,7 +16,7 @@ export default function AccordionList({ menu }: { menu: IMenuProps }) {
   const { title, items } = menu;
 
   return (
-    <div className='w-full flex flex-col gap-2'>
+    <div className='w-full flex flex-col gap-4'>
       <AsideAccordion header={title ?? ''}>
         {items.map(({ name, icon, type, link }, index: number) => {
           if (type === 'checkbox') {

@@ -22,7 +22,7 @@ export interface ICardProps {
   };
 }
 
-export default function Card({ className = '', href, description, image, icon }: ICardProps) {
+export default function Card({ className = '', href, description, icon }: ICardProps) {
   const headlineRef = useRef<HTMLDivElement>(null);
   useTruncateText(headlineRef);
 
@@ -37,7 +37,8 @@ export default function Card({ className = '', href, description, image, icon }:
         )
       }
     >
-      {/* <Image src={image.src} alt={image.alt} className="" width={10} height={10} /> */}
+      {/* {image && <Image src={image.src} alt={image.alt} className="flex-1" width={10} height={10} />} */}
+
       <div className='flex-1'></div>
       <Image
         src={icon.src}
