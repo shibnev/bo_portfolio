@@ -4,7 +4,7 @@ import { RestApi } from '@/types';
 
 export default async function About() {
   const dataBase = await getData(RestApi.url)
-  const menu = dataBase?.pages?.about?.menu
+  const menu = dataBase?.contacts
 
   return (
     <PageInner menu={menu}>
