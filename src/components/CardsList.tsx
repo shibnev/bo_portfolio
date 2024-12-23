@@ -12,7 +12,7 @@ export default function CardsList({ cards, className = '' }: ICardsListProps) {
   return (
     <div
       className={
-        classNames('grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4', className)
+        classNames('grid grid-cols-[repeat(auto-fill,minmax(14rem,1fr))] gap-4 mt-4', className)
       }
     >
       {cards.map(({ name, href, description, image, icon }, index) => (

@@ -38,7 +38,8 @@
     "about": {
       "id": "2",
       "name": "_about",
-      "href": "/about"
+      "href": "/about",
+      "content": "Proactive Frontend Developer with 6+ years of versatile experience in the field, recognized for transforming development processes, enhancing user experiences, and collaborating effectively with cross-functional teams. Skilled in creating visually captivating and pixel-perfect interfaces, streamlining workflows through reusable components, and implementing cutting-edge technologies. Proficient in React, TypeScript, Vue, and CSS frameworks, delivering high-quality outcomes that align with business goals and exceed user expectations."
     },
     "projects": {
       "id": "3",

@@ -1,8 +1,11 @@
+'use client';
 import classNames from '@/helpers/ClassNames';
 import { className } from '@/types';
 import Image from 'next/image';
 import Button from './Button';
-import cropText from '@/helpers/cropText';
+// import cropText from '@/helpers/cropText';
+import React, { useRef } from 'react';
+import { useTruncateText } from '@/helpers/truncateText';
 
 export interface ICardProps {
   className?: className;
@@ -20,6 +23,9 @@ export interface ICardProps {
 }
 
 export default function Card({ className = '', href, name, description, image, icon }: ICardProps) {
+  const headlineRef = useRef<HTMLDivElement>(null);
+  useTruncateText(headlineRef);
+
   return (
     <a
       href={href}
@@ -40,8 +46,12 @@ export default function Card({ className = '', href, name, description, image, i
         width={16}
         height={16}
       />
-      <div className="line-t p-4 flex flex-col gap-4 flex-1 ">
-        <p className="text-primaryLight text-sm">{cropText(description, 46)}</p>
+      <div className="line-t p-4 flex flex-col gap-4 flex-1 h-1/2">
+        <p className="text-primaryLight text-sm" ref={headlineRef}>
+          <span>
+            {description}
+          </span>
+        </p>
         <Button className=''>view-project</ Button>
       </div>
     </a>

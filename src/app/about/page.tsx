@@ -1,9 +1,14 @@
 import PageInner from '@/components/PageInner';
+import getData from '@/helpers/getData';
+import { RestApi } from '@/types';
 
-export default function About() {
+export default async function About() {
+  const dataBase = await getData(RestApi.url)
+  const menu = dataBase?.pages?.projects?.menu
+
   return (
-    <PageInner>
-      <h1>ABOUT ME</h1>
+    <PageInner menu={menu}>
+      <h1>_about_me</h1>
     </PageInner>
   )
 }
