@@ -39,7 +39,28 @@
       "id": "2",
       "name": "_about",
       "href": "/about",
-      "content": "Proactive Frontend Developer with 6+ years of versatile experience in the field, recognized for transforming development processes, enhancing user experiences, and collaborating effectively with cross-functional teams. Skilled in creating visually captivating and pixel-perfect interfaces, streamlining workflows through reusable components, and implementing cutting-edge technologies. Proficient in React, TypeScript, Vue, and CSS frameworks, delivering high-quality outcomes that align with business goals and exceed user expectations."
+      "content": "Proactive Frontend Developer with 6+ years of versatile experience in the field, recognized for transforming development processes, enhancing user experiences, and collaborating effectively with cross-functional teams. Skilled in creating visually captivating and pixel-perfect interfaces, streamlining workflows through reusable components, and implementing cutting-edge technologies. Proficient in React, TypeScript, Vue, and CSS frameworks, delivering high-quality outcomes that align with business goals and exceed user expectations.",
+      "menu": {
+        "title": "contacts",
+        "items": [
+          {
+            "name": "shibnev.anton@gmail.com",
+            "type": "link",
+            "icon": {
+              "src": "./icons/mail.svg",
+              "alt": "mail"
+            }
+          },
+          {
+            "name": "+381 62 8227 868",
+            "type": "link",
+            "icon": {
+              "src": "./icons/phone.svg",
+              "alt": "phone"
+            }
+          }
+        ]
+      }
     },
     "projects": {
       "id": "3",
@@ -91,6 +112,7 @@
         "items": [
           {
             "name": "React",
+            "type": "checkBox",
             "icon": {
               "src": "./icons/react.svg",
               "alt": "react"
@@ -98,6 +120,7 @@
           },
           {
             "name": "HTML",
+            "type": "checkBox",
             "icon": {
               "src": "./icons/html.svg",
               "alt": ""
@@ -105,6 +128,7 @@
           },
           {
             "name": "css",
+            "type": "checkBox",
             "icon": {
               "src": "./icons/css.svg",
               "alt": ""
@@ -114,7 +138,7 @@
       }
     },
     "contact": {
-      "name": "_contact",
+      "name": "_contact me",
       "href": "/contact",
       "id": "4"
     }
