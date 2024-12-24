@@ -20,7 +20,6 @@ export default function AsideAccordion({ className, header, children, isOpen = f
     const el = ref.current;
 
     if (el) {
-      // Toggle the content's max-height for smooth opening and closing
       if (!isActive) {
         el.style.maxHeight = '0';
       } else {
