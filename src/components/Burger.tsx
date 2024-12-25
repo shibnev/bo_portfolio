@@ -17,7 +17,7 @@ function BurgerLine({ isOpen, lineIndex }: IBurgerLineProps): JSX.Element {
   return (
     <span
       className={classNames(
-        'bg-primaryLight block transition-all duration-300 ease-out h-0.5 w-6 rounded-sm',
+        'bg-primaryLight block transition-all duration-300 ease-out h-0.5 w-6 rounded-sm group-hover:bg-white',
         lineIndex === 2 ? 'my-0.5' : '',
         lineStyles[lineIndex - 1]
       )}
@@ -34,7 +34,7 @@ export default function Burger({ className = '', isOpen, onClick }: IBurgerProps
   return (
     <button
       onClick={onClick}
-      className={classNames('flex flex-col justify-center items-center', className)}
+      className={classNames('flex flex-col justify-center items-center group', className)}
       aria-label="toggle navigation menu"
       type="button"
     >

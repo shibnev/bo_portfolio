@@ -1,10 +1,10 @@
 'use client'
 
-// import Burger from './Burger';
+import Burger from './Burger';
 import Link from 'next/link';
 import { Me } from '@/types';
 import toKebabCase from '@/helpers/toKebabCase';
-// import { useIsNavModal } from '@/context/nav-modal-provider';
+import { useIsNavModal } from '@/context/nav-modal-provider';
 import Nav from '@/components/Nav';
 import NavModal from '@/components/NavModal';
 
@@ -13,31 +13,33 @@ interface IHeaderProps {
 }
 
 export default function Header({ navList }: IHeaderProps) {
-  // const navModalContext = useIsNavModal();
-  // const isNavOpen = navModalContext?.isNavOpen ?? false;
-  // const setNavOpen = navModalContext?.setNavOpen;
+  const navModalContext = useIsNavModal();
+  const isNavOpen = navModalContext?.isNavOpen ?? false;
+  const setNavOpen = navModalContext?.setNavOpen;
 
   return (
     <>
       <header
         className={`flex justify-between items-center line-b h-14`}
       >
-        <Link
-          href='/'
-          className='main-text border-solid border-dark md:border-r px-4 h-full flex items-center aside-width hover:text-white transition-colors'>
-          {toKebabCase(Me.name)}
-        </Link>
+        <div className='border-solid h-full border-dark md:border-r px-4 aside-width flex items-center'>
+          <Link
+            href='/'
+            className='main-text hover:text-white transition-colors w-max'>
+            {toKebabCase(Me.name)}
+          </Link>
+        </div>
 
         <Nav
           className='hidden md:flex flex-col md:flex-row mr-auto'
           list={navList}
         />
 
-        {/* <Burger
+        <Burger
           isOpen={isNavOpen}
           onClick={() => setNavOpen && setNavOpen(!isNavOpen)}
-          className='md:hidden'
-        /> */}
+          className='md:hidden px-4'
+        />
       </header>
 
       <NavModal

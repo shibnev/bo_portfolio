@@ -25,7 +25,7 @@ export default async function Home() {
           <p className='text-sm text-primaryLight'>{main.content[0]}</p>
 
           <p className='text-sm'>
-            <span className='text-success'>const</span> <span className='text-secondary'>GITHUB_LINK</span> = <a className='text-danger' href={github.href}>“<span className='underline'>{github.href}</span>”</a>
+            <span className='text-success'>const</span> <span className='text-secondary'>GITHUB_LINK</span> = <a className='text-danger hover:text-white transition-colors' href={github.href}>“<span className='underline'>{github.href}</span>”</a>
           </p>
         </div>
       </div>

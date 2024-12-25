@@ -1,32 +1,20 @@
 import { Resend } from 'resend';
 import EmailTemplate from '@/components/EmailTemplate';
 
-/**
- * Parameters for the postEmail function.
- */
 interface PostParams {
   from: string;
   name: string;
   message: string;
 }
 
-/**
- * Successful response from the email creation.
- */
 interface CreateEmailResponseSuccess {
   id: string;
 }
 
-/**
- * Error response structure.
- */
 interface ErrorResponse {
   message: string;
 }
 
-/**
- * Response structure from the Resend API.
- */
 interface ResendResponse {
   data?: CreateEmailResponseSuccess | null;
   error?: ErrorResponse | null;
@@ -47,7 +35,7 @@ export default async function postEmail({ from, name, message }: PostParams): Pr
 
   try {
     const { data, error }: ResendResponse = await resend.emails.send({
-      from: `Acme <${from}>`,
+      from: `<${from}>`,
       to: ['shibnev.anton@gmail.com'],
       subject: `New message from ${name}`,
       react: EmailTemplate({ name, message }),
