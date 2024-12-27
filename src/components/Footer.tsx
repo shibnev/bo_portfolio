@@ -17,7 +17,7 @@ export default function Footer({ className = '' }: IFooterProps) {
     async function fetchData() {
       const dataSocials = await fetchDataFromFirebase('socials');
 
-      const socialsList = [dataSocials[0].github];
+      const socialsList = [dataSocials[0].github, dataSocials[0].linkedin, dataSocials[0].codewars, dataSocials[0].telegram];
 
       setSocials(socialsList);
     }
