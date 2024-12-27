@@ -39,7 +39,7 @@ export default function CodeText({ className = '', children, lineHeight = 30 }: 
     >
       <div
         style={{ lineHeight: `${lineHeight}px` }}
-        className='flex flex-col main-text top-2 left-0 text-right pr-6'
+        className='md:flex flex-col main-text top-2 left-0 text-right pr-6 hide'
       >
         {Array.from({ length: lines || 0 }, (_, i) => (<span key={i}>{i + 1}</span>))}
       </div>
