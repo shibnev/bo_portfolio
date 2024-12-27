@@ -1,16 +1,29 @@
+'use client';
+
 import Image from 'next/image';
 import classNames from '@/helpers/ClassNames';
-import getData from '@/helpers/getData';
-import { className, RestApi } from '@/types';
+import { className, } from '@/types';
+import { useEffect, useState } from 'react';
+import { fetchDataFromFirebase } from '@/utils/fetchDataFromFirebase';
 
 interface IFooterProps {
   className?: className;
 }
 
-export default async function Footer({ className = '' }: IFooterProps) {
-  const dataBase = await getData(RestApi.url);
-  const { socials } = dataBase;
-  const icons: { href: string; iconSrc: string; alt: string }[] = socials;
+export default function Footer({ className = '' }: IFooterProps) {
+  const [socials, setSocials] = useState<>()
+
+  useEffect(() => {
+    async function fetchData() {
+      const dataSocials = await fetchDataFromFirebase('socials');
+
+      const socialsList = [dataSocials[0].github];
+
+      setSocials(socialsList);
+    }
+
+    fetchData();
+  }, [socials]);
 
   return (
     <footer
@@ -21,7 +34,7 @@ export default async function Footer({ className = '' }: IFooterProps) {
       <div className="flex items-center h-full justify-end">
         <p className='main-text px-4'>find me in:</p>
         <div className='ml-auto md:ml-0 flex items-center h-full'>
-          {Object.values(icons).map(({ href, iconSrc, alt }, index) => (
+          {socials && socials.map(({ href, iconSrc, alt }, index) => (
             <a
               href={href}
               key={`__${alt}-${index}`}

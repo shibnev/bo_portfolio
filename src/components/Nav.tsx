@@ -4,14 +4,27 @@ import Link from 'next/link';
 import { className } from '@/types';
 import classNames from '@/helpers/ClassNames';
 import { usePathname } from 'next/navigation'
+import { fetchDataFromFirebase } from '@/utils/fetchDataFromFirebase';
+import { useEffect, useState } from 'react';
 
 interface INavProps {
   className?: className;
-  list: { name: string, href: string, id: string }[];
 }
 
-export default function Nav({ className = '', list }: INavProps) {
+export default function Nav({ className = '' }: INavProps) {
   const currentPath = usePathname();
+  const [list, setList] = useState<{ name: string; href: string; id: string }[]>([]);
+
+  useEffect(() => {
+    async function fetchData() {
+      const dataPages = await fetchDataFromFirebase('pages');
+
+      const list = [dataPages[0].main, dataPages[0].about, dataPages[0].contact];
+      await setList(list);
+    }
+
+    fetchData();
+  }, [list]);
 
   return (
     <nav className={classNames('flex', className)}>

@@ -8,11 +8,11 @@ import { useIsNavModal } from '@/context/nav-modal-provider';
 import Nav from '@/components/Nav';
 import NavModal from '@/components/NavModal';
 
-interface IHeaderProps {
-  navList: { name: string; href: string; id: string }[];
-}
+// interface IHeaderProps {
+//   navList: { name: string; href: string; id: string }[];
+// }
 
-export default function Header({ navList }: IHeaderProps) {
+export default function Header() {
   const navModalContext = useIsNavModal();
   const isNavOpen = navModalContext?.isNavOpen ?? false;
   const setNavOpen = navModalContext?.setNavOpen;
@@ -32,7 +32,6 @@ export default function Header({ navList }: IHeaderProps) {
 
         <Nav
           className='hidden md:flex flex-col md:flex-row mr-auto'
-          list={navList}
         />
 
         <Burger
@@ -44,7 +43,6 @@ export default function Header({ navList }: IHeaderProps) {
 
       <NavModal
         className='md:hidden'
-        navList={navList}
       />
     </>
   )

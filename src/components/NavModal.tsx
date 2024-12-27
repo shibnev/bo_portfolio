@@ -10,10 +10,9 @@ import { useIsNavModal } from '@/context/nav-modal-provider';
 interface INavModalProps {
   className?: className
   onClick?: () => void
-  navList: { name: string, href: string, id: string }[]
 }
 
-export default function NavModal({ className = '', navList }: INavModalProps) {
+export default function NavModal({ className = '' }: INavModalProps) {
   const navModalContext = useIsNavModal();
   if (!navModalContext) {
     return null;
@@ -27,7 +26,7 @@ export default function NavModal({ className = '', navList }: INavModalProps) {
       className={classNames('bg-primary z-20', className)}
     >
       <div className='flex flex-col h-full'>
-        <Nav list={navList} />
+        <Nav />
         <Footer className='mt-auto' />
       </div>
     </Modal>
