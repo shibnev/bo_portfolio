@@ -7,7 +7,7 @@ import { fetchDataFromFirebase } from '@/utils/fetchDataFromFirebase';
 
 export default function About() {
   const [content, setContent] = useState<[]>([]);
-  const [contacts, setContacts] = useState<[]>([]);
+  const [contacts, setContacts] = useState<IMenuProps | null>(null);
 
   useEffect(() => {
     async function fetchData() {
@@ -22,7 +22,7 @@ export default function About() {
   }, [content, contacts]);
 
   return (
-    <PageInner menu={contacts} >
+    <PageInner menu={contacts || {}} >
       <div className='flex flex-col gap-4'>
         <h2>_about_me</h2>
         {content && (<CodeText>{content}</CodeText>)}

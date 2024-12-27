@@ -13,7 +13,7 @@ interface INavProps {
 
 export default function Nav({ className = '' }: INavProps) {
   const currentPath = usePathname();
-  const [list, setList] = useState<{ name: string; href: string; id: string }[]>([]);
+  const [list, setList] = useState<[]>([]);
 
   useEffect(() => {
     async function fetchData() {
@@ -24,7 +24,7 @@ export default function Nav({ className = '' }: INavProps) {
     }
 
     fetchData();
-  }, [list]);
+  }, []); // Removed `list` from dependency array
 
   return (
     <nav className={classNames('flex', className)}>
