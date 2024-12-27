@@ -22,9 +22,9 @@ export default function Footer({ className = '' }: IFooterProps) {
 
   useEffect(() => {
     async function fetchData() {
-      const dataSocials = await fetchDataFromFirebase('socials') as { github: Social, linkedin: Social, codewars: Social, telegram: Social }[];
+      const dataSocials = await fetchDataFromFirebase('socials') as { github: Social, linkedin: Social, telegram: Social }[];
 
-      const socialsList: Social[] = [dataSocials[0].github, dataSocials[0].linkedin, dataSocials[0].codewars, dataSocials[0].telegram];
+      const socialsList: Social[] = [dataSocials[0].github, dataSocials[0].linkedin, dataSocials[0].telegram];
 
       setSocials(socialsList);
     }
