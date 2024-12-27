@@ -16,8 +16,8 @@ export default function Home() {
       const dataSocials = await fetchDataFromFirebase('socials');
 
       setName(dataMe[0]?.name);
-      setContent(dataPage[0]?.main.content);
-      setGithub(dataSocials[0]?.github);
+      setContent(Array.isArray(dataPage[0]?.main?.content) ? dataPage[0]?.main?.content ?? [] : []);
+      setGithub(dataSocials[0]?.github as { href: string } | null);
     }
 
     fetchData();

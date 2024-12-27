@@ -11,15 +11,26 @@ interface INavProps {
   className?: className;
 }
 
+interface IPage {
+  content: string;
+  href: string;
+  id: number;
+  name: string
+}
+
 export default function Nav({ className = '' }: INavProps) {
   const currentPath = usePathname();
-  const [list, setList] = useState<[]>([]);
+  const [list, setList] = useState<IPage[]>([]);
 
   useEffect(() => {
     async function fetchData() {
       const dataPages = await fetchDataFromFirebase('pages');
 
-      const list = [dataPages[0].main, dataPages[0].about, dataPages[0].contact];
+      const list: IPage[] = [
+        { content: String(dataPages[0]?.main?.content ?? ''), href: String(dataPages[0]?.main?.href ?? ''), id: Number(dataPages[0]?.main?.id ?? 0), name: String(dataPages[0]?.main?.name ?? '') },
+        { content: String(dataPages[0]?.about?.content ?? ''), href: String(dataPages[0]?.about?.href ?? ''), id: Number(dataPages[0]?.about?.id ?? 0), name: String(dataPages[0]?.about?.name ?? '') },
+        { content: '', href: '', id: 0, name: 'Contact' }
+      ];
       setList(list);
     }
 

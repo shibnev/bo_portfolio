@@ -4,9 +4,10 @@ import CodeText from '@/components/CodeText';
 import PageInner from '@/components/PageInner';
 import { useEffect, useState } from 'react';
 import { fetchDataFromFirebase } from '@/utils/fetchDataFromFirebase';
+import { IMenuProps } from '@/components/AccordionList';
 
 export default function About() {
-  const [content, setContent] = useState<[]>([]);
+  const [content, setContent] = useState<string | null>(null);
   const [contacts, setContacts] = useState<IMenuProps | null>(null);
 
   useEffect(() => {
@@ -14,15 +15,20 @@ export default function About() {
       const dataPage = await fetchDataFromFirebase('pages');
       const dataContacts = await fetchDataFromFirebase('contacts');
 
-      setContent(dataPage[0]?.about.content);
-      setContacts(dataContacts[0]);
+      const content = dataPage[0]?.about?.content;
+      if (typeof content === 'string') {
+        setContent(content);
+      } else {
+        setContent(null);
+      }
+      setContacts(dataContacts[0] as unknown as IMenuProps);
     }
 
     fetchData();
   }, [content, contacts]);
 
   return (
-    <PageInner menu={contacts || {}} >
+    <PageInner menu={contacts || undefined} >
       <div className='flex flex-col gap-4'>
         <h2>_about_me</h2>
         {content && (<CodeText>{content}</CodeText>)}
