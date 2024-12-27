@@ -35,7 +35,7 @@ export default function About() {
 
         <a
           className='mt-4 text-sm text-white bg-warning px-8 py-4 rounded-md w-max hover:bg-primaryLight transition-colors hover:text-primaryDark'
-          target='_blank' href="/anton_shibnev_cv.pdf">see my cv</a>
+          target='_blank' href="https://raw.githubusercontent.com/shibnev/bo_portfolio/refs/heads/master/public/anton_shibnev_cv.pdf">see my cv</a>
 
       </div>
     </PageInner>
