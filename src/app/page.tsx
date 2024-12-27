@@ -39,7 +39,28 @@ export default function Home() {
           <p className='text-sm'>
             {github && (
               <>
-                <span className='text-success'>const</span> <span className='text-secondary'>GITHUB_LINK</span> = <a className='text-danger hover:text-white transition-colors' href={github.href}>“<span className='underline'>{github.href}</span>”</a>
+                <span
+                  className='text-success'
+                >
+                  const
+                </span>
+                {' '}
+                <span
+                  className='text-secondary'
+                >
+                  GITHUB_LINK
+                </span>
+                {' = '}
+                <a
+                  className='text-danger hover:text-white transition-colors'
+                  href={github.href}
+                >
+                  “<span
+                    className='underline'
+                  >
+                    {github.href}
+                  </span>”
+                </a>
               </>)
             }
           </p>
