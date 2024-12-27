@@ -29,7 +29,7 @@ export default function Nav({ className = '' }: INavProps) {
       const list: IPage[] = [
         { content: String(dataPages[0]?.main?.content ?? ''), href: String(dataPages[0]?.main?.href ?? ''), id: Number(dataPages[0]?.main?.id ?? 0), name: String(dataPages[0]?.main?.name ?? '') },
         { content: String(dataPages[0]?.about?.content ?? ''), href: String(dataPages[0]?.about?.href ?? ''), id: Number(dataPages[0]?.about?.id ?? 0), name: String(dataPages[0]?.about?.name ?? '') },
-        { content: '', href: '', id: 0, name: 'Contact' }
+        //   { content: '', href: '', id: 0, name: 'Contact' }
       ];
       setList(list);
     }
