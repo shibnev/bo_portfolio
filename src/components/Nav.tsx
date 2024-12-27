@@ -20,7 +20,7 @@ export default function Nav({ className = '' }: INavProps) {
       const dataPages = await fetchDataFromFirebase('pages');
 
       const list = [dataPages[0].main, dataPages[0].about, dataPages[0].contact];
-      await setList(list);
+      setList(list);
     }
 
     fetchData();
@@ -28,15 +28,15 @@ export default function Nav({ className = '' }: INavProps) {
 
   return (
     <nav className={classNames('flex', className)}>
-      {list.flatMap(({ name, href, id }, index) => (
+      {list && list.flatMap(({ name, href, id }, index) => (
         <Link
           href={href}
           key={`__${id}-${index}`}
           className={
             classNames(
-              'main-text relative flex items-center container-padding-x header-height line-r hover:text-white transition',
+              'text-sm md:text-primaryLight text-white relative flex items-center container-padding-x header-height hover:text-white transition border-solid border-dark border-b md:border-r md:border-b-0',
               {
-                'text-white before:block before:w-full before:h-1 before:absolute before:bottom-0 before:left-0 before:bg-warning': currentPath === href,
+                'text-white before:w-full md:before:h-1 before:absolute before:bottom-0 before:left-0 before:bg-warning': currentPath === href,
               },
             )}>
           {name}

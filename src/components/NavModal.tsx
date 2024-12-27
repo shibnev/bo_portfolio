@@ -23,10 +23,10 @@ export default function NavModal({ className = '' }: INavModalProps) {
     <Modal
       onClick={() => setNavOpen(!isNavOpen)}
       isShow={isNavOpen}
-      className={classNames('bg-primary z-20', className)}
+      className={classNames('bg-primary z-20 top-14', className)}
     >
       <div className='flex flex-col h-full'>
-        <Nav />
+        <Nav className='flex-col text-white' />
         <Footer className='mt-auto' />
       </div>
     </Modal>

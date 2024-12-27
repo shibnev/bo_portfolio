@@ -2,6 +2,10 @@ import { db } from '@/config/firebase';
 import { collection, getDocs, doc, getDoc } from 'firebase/firestore';
 
 export interface FirebaseData {
+  github: unknown;
+  linkedin: unknown;
+  codewars: unknown;
+  telegram: unknown;
   contact?: { email: string; phone: string };
   about?: { [key: string]: string | number | boolean | object };
   main?: { [key: string]: string | number | boolean | object };

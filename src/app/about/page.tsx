@@ -1,18 +1,31 @@
+'use client';
+
 import CodeText from '@/components/CodeText';
 import PageInner from '@/components/PageInner';
-import getData from '@/helpers/getData';
-import { RestApi } from '@/types';
+import { useEffect, useState } from 'react';
+import { fetchDataFromFirebase } from '@/utils/fetchDataFromFirebase';
 
-export default async function About() {
-  const dataBase = await getData(RestApi.url)
-  const menu = dataBase?.contacts
-  const content = dataBase?.pages?.about?.content
+export default function About() {
+  const [content, setContent] = useState<[]>([]);
+  const [contacts, setContacts] = useState<[]>([]);
+
+  useEffect(() => {
+    async function fetchData() {
+      const dataPage = await fetchDataFromFirebase('pages');
+      const dataContacts = await fetchDataFromFirebase('contacts');
+
+      setContent(dataPage[0]?.about.content);
+      setContacts(dataContacts[0].items);
+    }
+
+    fetchData();
+  }, [content, contacts]);
 
   return (
-    <PageInner menu={menu} >
+    <PageInner menu={contacts} >
       <div className='flex flex-col gap-4'>
         <h2>_about_me</h2>
-        <CodeText>{content}</CodeText>
+        {content && (<CodeText>{content}</CodeText>)}
 
         <a
           className='mt-4 text-sm text-white bg-warning px-8 py-4 rounded-md w-max hover:bg-primaryLight transition-colors hover:text-primaryDark'

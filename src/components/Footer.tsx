@@ -10,8 +10,15 @@ interface IFooterProps {
   className?: className;
 }
 
+interface Social {
+  href: string;
+  iconSrc: string;
+  alt: string;
+}
+
 export default function Footer({ className = '' }: IFooterProps) {
-  const [socials, setSocials] = useState<>()
+
+  const [socials, setSocials] = useState<Social[] | null>(null);
 
   useEffect(() => {
     async function fetchData() {
