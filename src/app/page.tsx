@@ -25,15 +25,15 @@ export default function Home() {
 
 
   return (
-    <Container className='relative z-10 py-8 flex-1 flex flex-col'>
+    <Container className='relative z-10 py-4 md:py-8 flex-1 flex flex-col'>
       <Blob />
-      <div className='py-8 flex flex-col gap-10 h-full flex-1'>
+      <div className='flex flex-col gap-4 md:gap-10 h-full flex-1'>
         <div className='flex flex-col gap-2 justify-center align-middle flex-1'>
           <h1 className='text-6xl'>{name}</h1>
           <h3 className='text-xl text-secondary'>{content[0]}</h3>
         </div>
 
-        <div className='mb-24 flex flex-col gap-4'>
+        <div className='mb-12 md:mb-24 flex flex-col gap-4'>
           <p className='text-sm text-primaryLight'>{content[1]}</p>
 
           <p className='text-sm'>
