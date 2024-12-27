@@ -15,7 +15,7 @@ export default function PageInner({ children, className = '', menu }: IPageInner
     <section className={classNames('flex-1 flex flex-col md:flex-row', className)}>
 
       <Aside className='aside-width'>
-        {/* {menu && <AccordionList menu={menu} />} */}
+        {menu && <AccordionList menu={menu} />}
       </Aside>
 
       <Container className='py-2 flex-1 flex flex-col'>

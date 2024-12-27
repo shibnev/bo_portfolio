@@ -15,7 +15,7 @@ export default function About() {
       const dataContacts = await fetchDataFromFirebase('contacts');
 
       setContent(dataPage[0]?.about.content);
-      setContacts(dataContacts[0].items);
+      setContacts(dataContacts[0]);
     }
 
     fetchData();

@@ -6,8 +6,8 @@ import { fetchDataFromFirebase } from '@/utils/fetchDataFromFirebase';
 
 export default function Home() {
   const [name, setName] = useState<string>('');
-  const [content, setContent] = useState<[]>([]);
-  const [github, setGithub] = useState<>()
+  const [content, setContent] = useState<string[]>([]);
+  const [github, setGithub] = useState<{ href: string } | null>(null)
 
   useEffect(() => {
     async function fetchData() {

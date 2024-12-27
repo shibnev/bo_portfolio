@@ -2,7 +2,7 @@
 
 import classNames from '@/helpers/ClassNames'
 import { children, className } from '@/types'
-import { useRef, useEffect, useState } from 'react'
+import { useRef, useEffect, useState, useCallback } from 'react'
 
 interface ICodeTextProps {
   className?: className
@@ -14,7 +14,7 @@ export default function CodeText({ className = '', children, lineHeight = 30 }: 
   const contentRef = useRef<HTMLDivElement>(null)
   const [lines, setLines] = useState<number>()
 
-  useEffect(() => {
+  const calculateLines = useCallback(() => {
     const content = contentRef.current;
 
     if (content) {
@@ -22,9 +22,13 @@ export default function CodeText({ className = '', children, lineHeight = 30 }: 
       const lineHeight = parseInt(content.style.lineHeight);
       const countLines = divHeight / lineHeight;
 
-      setLines(countLines)
+      setLines(countLines);
     }
-  }, [contentRef, lines]);
+  }, []);
+
+  useEffect(() => {
+    calculateLines();
+  }, [calculateLines]);
 
   return (
     <div
@@ -32,7 +36,6 @@ export default function CodeText({ className = '', children, lineHeight = 30 }: 
         'main-text relative flex pt-4',
         className
       )}
-
     >
       <div
         style={{ lineHeight: `${lineHeight}px` }}
