@@ -15,13 +15,13 @@ export default function About() {
       const dataPage = await fetchDataFromFirebase('pages');
       const dataContacts = await fetchDataFromFirebase('contacts');
 
-      const content = dataPage[0]?.about?.content;
+      const content = dataPage?.about?.content;
       if (typeof content === 'string') {
         setContent(content);
       } else {
         setContent(null);
       }
-      setContacts(dataContacts[0] as unknown as IMenuProps);
+      setContacts(dataContacts as unknown as IMenuProps);
     }
 
     fetchData();

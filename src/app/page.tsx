@@ -4,20 +4,26 @@ import Blob from '@/components/Blob';
 import { useEffect, useState } from 'react';
 import { fetchDataFromFirebase } from '@/utils/fetchDataFromFirebase';
 
+type PageData = {
+  main?: {
+    content?: string[];
+  };
+};
+
 export default function Home() {
   const [name, setName] = useState<string>('');
   const [content, setContent] = useState<string[]>([]);
-  const [github, setGithub] = useState<{ href: string } | null>(null)
+  const [github, setGithub] = useState<{ href: string } | null>(null);
 
   useEffect(() => {
     async function fetchData() {
       const dataMe = await fetchDataFromFirebase('me');
-      const dataPage = await fetchDataFromFirebase('pages');
+      const dataPage = await fetchDataFromFirebase('pages') as PageData;
       const dataSocials = await fetchDataFromFirebase('socials');
 
-      setName(dataMe[0]?.name);
-      setContent(Array.isArray(dataPage[0]?.main?.content) ? dataPage[0]?.main?.content ?? [] : []);
-      setGithub(dataSocials[0]?.github as { href: string } | null);
+      setName(dataMe.name);
+      setContent(Array.isArray(dataPage?.main?.content) ? dataPage?.main?.content ?? [] : []);
+      setGithub(dataSocials?.github as { href: string } | null);
     }
 
     fetchData();

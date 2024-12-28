@@ -24,18 +24,18 @@ export default function Nav({ className = '' }: INavProps) {
 
   useEffect(() => {
     async function fetchData() {
-      const dataPages = await fetchDataFromFirebase('pages');
+      const dataPages = await fetchDataFromFirebase('pages') as unknown as { main?: IPage, about?: IPage };
 
       const list: IPage[] = [
-        { content: String(dataPages[0]?.main?.content ?? ''), href: String(dataPages[0]?.main?.href ?? ''), id: Number(dataPages[0]?.main?.id ?? 0), name: String(dataPages[0]?.main?.name ?? '') },
-        { content: String(dataPages[0]?.about?.content ?? ''), href: String(dataPages[0]?.about?.href ?? ''), id: Number(dataPages[0]?.about?.id ?? 0), name: String(dataPages[0]?.about?.name ?? '') },
+        { content: String(dataPages?.main?.content ?? ''), href: String(dataPages?.main?.href ?? ''), id: Number(dataPages?.main?.id ?? 0), name: String(dataPages?.main?.name ?? '') },
+        { content: String(dataPages?.about?.content ?? ''), href: String(dataPages?.about?.href ?? ''), id: Number(dataPages?.about?.id ?? 0), name: String(dataPages?.about?.name ?? '') },
         //   { content: '', href: '', id: 0, name: 'Contact' }
       ];
       setList(list);
     }
 
     fetchData();
-  }, []); // Removed `list` from dependency array
+  }, []);
 
   return (
     <nav className={classNames('flex', className)}>
